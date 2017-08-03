@@ -1,0 +1,5 @@
+<% if @order.errors.any? || @order_item.errors.any? %>
+	alert("Invalid")
+<% else %>
+	$(".cart").html("<%= escape_javascript(render 'layouts/cart') %>")
+<% end %>

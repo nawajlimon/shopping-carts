@@ -1,0 +1,14 @@
+<%= form_for(@product) do |f| %>
+	<div class="form-group">
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title, class: 'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :price, "Price" %>
+		<%= f.number_field :price, value: 1, class: 'form-control', min: 1 %>
+	</div>
+
+	<%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>
+  

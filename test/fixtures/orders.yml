@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subtotal: 1.5
+  total: 1.5
+  tax: 1.5
+  shipping: 1.5
+
+two:
+  subtotal: 1.5
+  total: 1.5
+  tax: 1.5
+  shipping: 1.5
