@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+
   def index
     @products = Product.all
   end
@@ -18,7 +18,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    
+    @product = Product.find(params[:id])
+    @order_item = current_order.order_items.new
   end
 
   def edit
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path    
+    redirect_to products_path
   end
 
   private
