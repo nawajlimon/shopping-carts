@@ -11,7 +11,11 @@
 		<div class="well">
 			<div class="row">
 				<div class="col-sm-8">
-					<h3><%= item.product.title %></h3>
+          <ul class="list-inline">
+            <li><h3><%= item.product.title %></h3></li>
+            <li><h4>taille: <%= item.size %></h4></li>
+            <li><h4>couleur: <%= item.color %></h4></li>
+          </ul>
 				</div>
 				<div class="col-sm-4">
 					<div class="pull-right">
