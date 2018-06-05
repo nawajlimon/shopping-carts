@@ -11,13 +11,17 @@
 		<div class="well">
 			<div class="row">
 				<div class="col-sm-8">
-					<h3><%= item.product.title %></h3>
+          <ul class="list-inline">
+            <li><h3><%= item.product.title %></h3></li>
+            <li><h4>taille: <%= item.size %></h4></li>
+            <li><h4>couleur: <%= item.color %></h4></li>
+          </ul>
 				</div>
 				<div class="col-sm-4">
 					<div class="pull-right">
 					<%= form_for(item, remote: true) do |f| %>
 						<%= f.hidden_field :product_id, value: item.product.id %>
-						<h5><%= item.product.price %></h5>
+						<h5><%= item.product.price %>€</h5>
 						<div class="form-group">
 							<%= f.text_field :quantity, value: item.quantity.to_i, min: 1, class: 'form-control' %>
 						</div>
@@ -25,7 +29,7 @@
 							<%= f.submit "Update Quantity", class: 'btn btn-primary' %>
 							<%= link_to "Delete", item, method: :delete, remote: true, class: 'btn btn-danger'  %>
 						</div>
-						<span>Total Price: <%= item.total_price %></span>
+						<span>Total Price: <%= item.total_price %>€</span>
 					<% end %>
 					</div>
 				</div>
@@ -33,5 +37,5 @@
 		</div>
 	<% end %>
 <% else %>
-	
+
 <% end %>

@@ -1,14 +1,24 @@
-<%= form_for(@product) do |f| %>
-	<div class="form-group">
-		<%= f.label :title, "Title" %>
-		<%= f.text_field :title, class: 'form-control' %>
-	</div>
+<%= simple_form_for @product do |f| %>
+  <%= f.input :title, class: 'form-control' %>
+  <%= f.input :description, as: :text, class: 'form-control' %>
+  <%= f.input :price, value: @product.price, class: 'form-control', min: 1, step: :any, as: :float %>
 
-	<div class="form-group">
-		<%= f.label :price, "Price" %>
-		<%= f.number_field :price, value: 1, class: 'form-control', min: 1 %>
-	</div>
+  <%= f.input :category, collection: ['Stringers', 'T-shirts', 'Débardeurs', 'Joggings', 'Chaussures'] %>
 
-	<%= f.submit "Save", class: 'btn btn-success' %>
+
+  <%= f.label 'Sizes' %>
+  <div class="form-group">
+    <label class="inline">
+      <%= f.collection_check_boxes :sizes, [["XS"], ["S"], ["M"], ["L"], ["XL"], ["XXL"]], :last, :first %>
+    </label>
+  </div>
+
+  <%= f.label 'Colors' %>
+  <div class="form-group">
+    <label class="inline">
+      <%= f.collection_check_boxes :colors, [["blanc"], ["gris"], ["noir"], ["bleu"], ["marron"], ["vert"]], :last, :first %>
+    </label>
+  </div>
+
+  <%= f.submit "Save", class: 'btn btn-success' %>
 <% end %>
-  
